@@ -14,7 +14,15 @@ const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/register");
 const logOutRouter = require("./routes/logout");
 
-app.engine("hbs", engine());
+app.engine(
+  "hbs",
+  engine({
+    extname: "hbs",
+    defaultLayout: "main",
+    layoutsDir: __dirname + "/views/layouts/",
+    partialsDir: __dirname + "/views/partials/",
+  })
+);
 app.set("view engine", "hbs");
 app.set("views", __dirname + "/views");
 app.use(express.static("public"));

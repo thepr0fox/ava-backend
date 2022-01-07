@@ -1,4 +1,9 @@
 <h3>Hello {{{name}}}</h3>
-<p>If you're seeing this then it means that all my 6+ hours of insanity paid off
-  :></p>
+<form action="/post" method="post">
+  <input type="text" placeholder="Post what you're feeling..." name="content" id="postContent" required>
+  <button type="submit">Post</button>
+</form>
+{{#each posts}}
+  {{> post heading=this.heading content=this.content user=this.user.name date=this.postedAt}}
+{{/each}}
 <a href="/logout">Logout</a>

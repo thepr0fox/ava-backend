@@ -4,6 +4,6 @@
   <button type="submit">Post</button>
 </form>
 {{#each posts}}
-  {{> post heading=this.heading content=this.content user=this.user.name date=this.postedAt}}
+  {{> post heading=this.heading content=this.content user=this.userName time=this.time unit=this.unit}}
 {{/each}}
 <a href="/logout">Logout</a>

@@ -4,7 +4,7 @@ const postSchema = new mongoose.Schema({
   heading: {
     type: String,
     required: true,
-    default: 'No heading',
+    default: "No heading",
   },
   content: {
     type: String,
@@ -14,6 +14,10 @@ const postSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: "User",
+  },
+  userName: {
+    type: String,
+    required: true,
   },
   postedAt: {
     type: Date,

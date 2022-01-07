@@ -3,7 +3,7 @@
   <input type="text" placeholder="Post what you're feeling..." name="content" id="postContent" required>
   <button type="submit">Post</button>
 </form>
+<a href="/logout">Logout</a>
 {{#each posts}}
   {{> post heading=this.heading content=this.content user=this.userName time=this.time unit=this.unit}}
 {{/each}}
-<a href="/logout">Logout</a>

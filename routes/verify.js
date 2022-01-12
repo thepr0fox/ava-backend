@@ -11,12 +11,12 @@ router.get("/", checkAuth, checkNotVerified, (req, res) => {
     sendEmail(req.user.email, `Please verify your account`, `<h1>Email Confirmation</h1>
     <h2>Hello ${req.user.name}</h2>
     <p>Thank you for signing up for ava-network. Please confirm your email by clicking on the following link</p>
-    <a href=${req.protocol}://${req.hostname}:${port}/verify/${req.user.confirmCode}> Click here to verify</a>
+    <a href=https://${req.hostname}/verify/${req.user.confirmCode}> Click here to verify</a>
     <p>If you didn't signed up for ava-network then someone might have mistakenly used your email</p>`)
 
   res.status(401).render("msg", {
     heading: "Whoops its a 401",
-    msg: `Please verify your account\nWe have sent a verification link to ${req.user.email}`,
+    msg: `Please verify your account\nWe have sent a verification link to ${req.user.email}. Check the spam section, if you can't find the email`,
   });
 });
 

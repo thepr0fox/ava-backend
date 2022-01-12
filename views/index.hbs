@@ -5,5 +5,5 @@
 </form>
 <a href="/logout">Logout</a>
 {{#each posts}}
-  {{> post heading=this.heading content=this.content user=this.userName time=this.time unit=this.unit}}
+  {{> post heading=this.heading content=this.content name=this.userName loggedInEmail=../u_email email=this.userEmail time=this.time unit=this.unit}}
 {{/each}}

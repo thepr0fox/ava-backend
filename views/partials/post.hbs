@@ -2,7 +2,11 @@
   class="post"
   style="padding: .5%; width: 25vw; height: auto; word-wrap: break-word;"
 >
-  <h3><a href="/users">{{{user}}}</a> just shared a post</h3>
+  <h3><a href="/users">{{{name}}}</a> just shared a post</h3>
   <p>{{{content}}}</p>
   <p> {{{time}}} {{{unit}}} ago...</p>
+  {{#ifEq email loggedInEmail}}
+    <button onclick='alert("Not implemented yet")'>Edit</button>
+    <button onclick='alert("Not implemented yet")'>Delete</button>
+  {{/ifEq}}
 </div>

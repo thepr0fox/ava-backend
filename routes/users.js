@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.status(503).send("Error code 503: This page is currently under development");
+  res.status(503).render("msg", {heading: 'Whoops its a 503', message: "This page is under development"});
 });
 
 module.exports = router;

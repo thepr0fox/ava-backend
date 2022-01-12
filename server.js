@@ -14,6 +14,7 @@ const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/register");
 const logOutRouter = require("./routes/logout");
 const usersRouter = require("./routes/users");
+const verifyRouter = require("./routes/verify");
 
 app.engine(
   "hbs",
@@ -22,6 +23,11 @@ app.engine(
     defaultLayout: "main",
     layoutsDir: __dirname + "/views/layouts/",
     partialsDir: __dirname + "/views/partials/",
+    helpers: {
+      ifEq(arg1, arg2, options) {
+        return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+      },
+    },
   })
 );
 app.set("view engine", "hbs");
@@ -50,5 +56,6 @@ app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 app.use("/logout", logOutRouter);
 app.use("/users", usersRouter);
+app.use("/verify", verifyRouter);
 
 app.listen(process.env.PORT || 3000, () => console.log("Server started"));

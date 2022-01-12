@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
 const passport = require("passport");
-const checkNotAuth = require("../checkAuth/checkNotAuth");
+const checkNotAuth = require("../modules/checkNotAuth");
 
 const initPassport = require("../passport-config");
 initPassport(

@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const checkAuth = require("../checkAuth/checkAuth");
+const checkAuth = require("../modules/checkAuth");
 const Post = require("../models/post");
 const User = require("../models/user");
+const checkVerified = require("../modules/checkVerified");
 const xssFilters = require("xss-filters");
 
 router.get("/", checkAuth, async (req, res) => {
@@ -15,7 +16,8 @@ router.get("/", checkAuth, async (req, res) => {
     posts = [];
   }
   res.render("index", {
-    name: req.user?.name,
+    name: req.user.name,
+    u_email: req.user.email,
     posts: posts.map((post) => {
       post.time = Math.floor((Date.now() - post.postedAt) / 1000);
       if (post.time == 1) post.unit = "second";
@@ -51,11 +53,12 @@ router.get("/", checkAuth, async (req, res) => {
   });
 });
 
-router.post("/post", checkAuth, async (req, res) => {
+router.post("/post", checkAuth, checkVerified,  async (req, res) => {
   const post = new Post({
     content: xssFilters.inHTMLData(req.body.content),
     user: req.user,
     userName: req.user.name,
+    userEmail: req.user.email,
   });
   try {
     await post.save();

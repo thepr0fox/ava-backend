@@ -1,0 +1,87 @@
+*{
+    user-select: none;
+    --clr-primary-1: #f3c7d4;
+    --clr-primary-2: #9b80ad;
+    --clr-secondary-1: #774f92;
+    --clr-secondary-2: #b458f2;
+    --clr-secondary-3: #6605ac;
+}
+
+body{
+    background: var(--clr-primary-1)
+}
+
+.main {
+    font-size: 1rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-60%, -50%);  
+    border-radius: 32px;
+    padding: 3em;
+    margin: 2rem;
+    min-height: 30%;
+    font-weight: 300;
+}
+::placeholder{
+    color: var(--clr-secondary-1);
+    opacity: .75;
+}
+.main form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+}
+
+.main form > * {
+    margin: 20% 0 10% 0;
+    min-height: 2rem;
+}
+
+.main form input{
+    caret-color: var(--clr-secondary-3);
+    color: var(--clr-secondary-3);
+    background-color: var(--clr-primary-1);
+    border: none;
+    border-bottom: 1px solid var(--clr-primary-2);
+    outline: none;
+}
+
+.main form > input:hover, input:focus{
+    transition: .5s;
+    border: none;
+    border-bottom: 1px solid var(--clr-secondary-1);
+}
+
+.main form button{
+    background-color: var(--clr-secondary-1);
+    padding: .7em;
+    font-size: 1.25rem;
+    letter-spacing: .1rem;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+}
+
+.main form button:hover{
+    background-color: var(--clr-secondary-2);
+    color: white;
+}
+
+.main form button:active{
+    background-color: var(--clr-primary-2);
+}
+
+.main a{
+    color: var(--clr-secondary-2);
+}
+
+.main .heading{
+    font-family: 'Pacifico', cursive;
+    font-size: 1.275rem;
+    font-weight: 500;
+}
+
+.main .heading, .main a{
+    margin-left: 30%;
+}

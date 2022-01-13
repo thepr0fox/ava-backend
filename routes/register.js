@@ -13,7 +13,7 @@ router.get("/", checkNotAuth, (req, res) => {
 router.post("/", checkNotAuth, async (req, res) => {
   try {
     const existing_user = await User.findOne({email: req.body.email})
-    if (existing_user) return res.status(400).render('msg', {heading: 'Whoops its a 400', msg:'A user with that email already exists!'})
+    if (existing_user) return res.status(400).render('msg', {heading: 'Whoops its a 400', msg:'A user with that email already exists!', icon:'fal fa-exclamation-circle', css: 'color: red;',})
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const token = jwt({email: req.body.email}, process.env.JWT_SECRET)
     const user = new User({

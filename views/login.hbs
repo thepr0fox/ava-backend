@@ -1,18 +1,13 @@
-<h1>Login</h1>
-{{#if messages.error}}
-  {{{messages.error}}}
-{{/if}}
-<form action="/login" method="POST">
-
-  <div>
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" required />
-  </div>
-
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required />
-  </div>
-  <button type="submit">Login</button>
-</form>
-<a href="/register">Register</a>
+<link rel="stylesheet" href="styles/forms.css">
+<div class="main">
+  <h3 class="heading">A V A</h3>
+  {{#if messages.error}}
+    {{{messages.error}}}
+  {{/if}}
+  <form action="/login" method="POST">
+      <input type="email" name="email" id="email" placeholder="Email" required />
+      <input type="password" name="password" id="password" placeholder="Password" required />
+    <button type="submit">Login</button>
+  </form>
+  <a href="/register">Sign up</a>
+</div>
